@@ -1,29 +1,9 @@
-let Clients = {
-        id: "",
-        name: "",
-        age: "",
-        city: "",
-        getClient: function (object) {
-                for (const key in object) {
-                        if (object.hasOwnProperty(key)) {
-                                this[key] = object[key];
-                                console.log(this.name);
-
-                        }
-                }
-
-        }
-
-
-};
-
-
 
 let htmlManager = {
 
         thead: document.getElementById('myTable'),
 
-        getTdid: function (object) {
+        createTable: function (object) {
 
                 for (let i = 0; i < object.length; i++) {
 
@@ -56,11 +36,8 @@ let xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
                 let myObject = JSON.parse(this.responseText);
-                Clients.getClient(myObject);
-                htmlManager.getTdid(myObject);
-                htmlManager.gettdName(myObject);
-                htmlManager.getTdage(myObject);
-                htmlManager.getTdCity(myObject);
+                htmlManager.createTable(myObject);
+               
 
 
         }
